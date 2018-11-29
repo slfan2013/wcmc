@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1529509478730.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4040542403",
+    "id" : "32FA561",
+    "lastKnownWriteTime" : 1537981504,
+    "last_content_update" : 1537981504387,
+    "path" : "~/Github/wcmc/R/read_data.R",
+    "project_path" : "R/read_data.R",
+    "properties" : {
+        "cursorPosition" : "2,68",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
