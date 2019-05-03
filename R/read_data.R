@@ -1,7 +1,17 @@
 read_data  = function(path = "C:\\Users\\Sili\\Desktop\\projects\\mx 399706 Chris Morrissey\\mx 399706 Chris Morrissey, mouse serum, March 2018.xlsx", sheet  = 1){
   library(data.table)
-  data = readxl::read_excel(path, col_names = FALSE, sheet  = sheet )
-  data = data.table(data)
+
+
+  # path = "C:\\Users\\Sili\\Documents\\Github\\Bajaj_2_5_2019\\Serum\\Bajaj complete urine and serum data transposed 12.31.18pm 90day 6month.csv"
+
+  if(grepl("xlsx",path)){
+    data = readxl::read_excel(path, col_names = FALSE, sheet  = sheet )
+    data = data.table(data)
+  }else{
+    data = fread(path)
+    data[data=='']=NA
+  }
+
 
 
   sample_col_range = min(which(!is.na(data[1,]))):ncol(data)
