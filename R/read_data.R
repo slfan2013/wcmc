@@ -1,4 +1,4 @@
-read_data  = function(path = "C:\\Users\\Sili\\Desktop\\projects\\mx 399706 Chris Morrissey\\mx 399706 Chris Morrissey, mouse serum, March 2018.xlsx", sheet  = 1){
+read_data  = function(path = "D:\\Jennly Zhang MetaboliteSD_ver03\\Raw_Phenotype_UCDavis.xlsx", sheet  = 1){
   library(data.table)
 
 
@@ -55,6 +55,15 @@ read_data  = function(path = "C:\\Users\\Sili\\Desktop\\projects\\mx 399706 Chri
   colnames(e)[is.na(colnames(e))] = "na"
   e = e[-1,]
 
+  e_cat = e
+  colnames(e_cat) = make.unique(colnames(e_cat), sep = "_")
+  e_cat$label[is.na(e_cat$label)] = "na"
+  e_cat$label = f$label
+  colnames(e_cat) = c("label",p$label)
+
+  e_cat_matrix = as.matrix(e_cat[,-1,with=F])
+
+
   e = data.table(label = e$label, sapply(e[,-1,with=F], function(x){
     as.numeric(x)
   }))
@@ -67,5 +76,5 @@ read_data  = function(path = "C:\\Users\\Sili\\Desktop\\projects\\mx 399706 Chri
 
   e_matrix = data.matrix(e[,-1,with=F])
 
-  return(list(p = p, f = f, e = e, e_matrix = e_matrix))
+  return(list(p = p, f = f, e = e, e_matrix = e_matrix,e_cat_matrix = e_cat_matrix))
 }
